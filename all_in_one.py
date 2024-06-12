@@ -15,7 +15,8 @@ size = 640
 dpi = 141
 
 test_color_lab = (80, -90, 90)
-test_color_rgb = lab_to_rgb(*test_color_lab)
+test_color_rgb = tuple(lab_to_rgb(*test_color_lab))
+print(test_color_rgb)
 inducing_colors_lab = generate_inducing_colors()
 print("Inducing Colors lab(C1 to C20):", inducing_colors_lab)
 inducing_colors_rgb = [
