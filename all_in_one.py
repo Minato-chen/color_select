@@ -31,6 +31,6 @@ for i in range(7):  # 0,1,2,3,4,5,6
     else:
         square_size_mm = square_size_mm + 1
     for rgb_bg in inducing_colors_rgb:
-        # plot_type1(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_1")
+        plot_type1(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_1")
         plot_type2(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_2")
         plot_type3(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_3")
