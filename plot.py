@@ -24,10 +24,10 @@ def plot_type1(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_1"
             )
 
     filename = (
-        f"{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
+        f"{square_size_mm}_{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
     )
     output_dir = os.path.join(
-        output_dir, "{}_{}_{}".format(adjusted_size, dpi, square_size_mm)
+        output_dir, "{}_{}_{}".format(square_size_mm,dpi,adjusted_size)
     )
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))
@@ -56,11 +56,11 @@ def plot_type2(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_2"
         )
 
     filename = (
-        f"{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
+        f"{square_size_mm}_{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
     )
     output_dir = os.path.join(
         output_dir,
-        "{}_{}_{}".format(adjusted_size, dpi, square_size_mm),
+        "{}_{}_{}".format(square_size_mm,dpi,adjusted_size),
     )
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))
@@ -95,11 +95,11 @@ def plot_type3(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_3"
 
     # 保存图像
     filename = (
-        f"{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
+        f"{square_size_mm}_{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
     )
     output_dir = os.path.join(
         output_dir,
-        "{}_{}_{}".format(size, dpi, square_size_mm),
+        "{}_{}_{}".format(square_size_mm,dpi,size),
     )
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))

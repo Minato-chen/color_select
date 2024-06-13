@@ -3,15 +3,15 @@ import matplotlib.pyplot as plt
 from skimage.color import lab2rgb
 
 
-def lab_to_rgb(L, a, b):
+def lab_to_rgb(l, a, b):
     lab_color = np.array(
-        [[[L, a, b]]], dtype=np.float32
+        [[[l, a, b]]], dtype=np.float32
     )  # Create a 3D array for the Lab color
     rgb_color = lab2rgb(lab_color)  # Convert to RGB
     rgb_color = np.clip((rgb_color * 255), 0, 255).astype(
         int
     )  # Scale to [0, 255] and convert to int
-    return rgb_color[0][0]  # Return the RGB values
+    return tuple(rgb_color[0][0])  # Return the RGB values
 
 
 # Example Lab values
