@@ -28,7 +28,7 @@ inducing_colors_rgb = [
 print("Inducing Colors rgb(C1 to C20):", inducing_colors_rgb)
 rgb_fg = test_color_rgb
 
-for i in range(7):  # 0,1,2,3,4,5,6
+for i in range(7):  # i=0,1,2,3,4,5,6
     if i == 0:
         square_size_mm = 1.25
     else:
