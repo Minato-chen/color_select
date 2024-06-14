@@ -3,6 +3,7 @@ from colormath.color_conversions import convert_color
 from lab_to_rgb import lab_to_rgb
 from rgb_to_lab import rgb_to_lab
 from rgb_to_xyz import rgb_to_xyz
+from new_lab2rgb import new_lab_to_rgb
 
 # D65, 2/10°观察
 # LAB -> RGB -> LAB
@@ -10,6 +11,8 @@ original_lab = LabColor(50, 10, 10)
 print("Original LAB:", original_lab)
 rgb = lab_to_rgb(original_lab)
 print("Converted RGB:", rgb)
+rgb_new = new_lab_to_rgb(50, 10, 10)
+print("Converted RGB(New):", rgb_new)
 converted_lab = rgb_to_lab(rgb)
 print("Re-converted LAB:", converted_lab)
 

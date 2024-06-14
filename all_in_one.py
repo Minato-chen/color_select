@@ -1,14 +1,20 @@
 import numpy as np
-from skimage.color import lab2rgb
+from colormath.color_objects import LabColor, sRGBColor
+from colormath.color_conversions import convert_color
+
 from color_generate import generate_inducing_colors
 from plot import plot_type1, plot_type2, plot_type3
 
 
-def lab_to_rgb(l, a, b):
-    lab_color = np.array([[[l, a, b]]], dtype=np.float32)
-    rgb_color = lab2rgb(lab_color)  # Convert to RGB
-    rgb_color = np.clip((rgb_color * 255), 0, 255).astype(int)
-    return tuple(rgb_color[0][0])  # Return the RGB values
+def lab_to_rgb(lab):
+    rgb = convert_color(lab, sRGBColor)
+    # Clamp the values to be between 0 and 1 before converting to 0-255 range
+    rgb_values = (
+        round(min(max(rgb.rgb_r, 0.0), 1.0) * 255),
+        round(min(max(rgb.rgb_g, 0.0), 1.0) * 255),
+        round(min(max(rgb.rgb_b, 0.0), 1.0) * 255),
+    )
+    return rgb_values
 
 
 size = 640
@@ -17,13 +23,13 @@ square_size_mm = 0
 
 test_color_lab = (80, -90, 90)
 print("Testing color lab(T):", test_color_lab)
-test_color_rgb = lab_to_rgb(*test_color_lab)
+test_color_rgb = lab_to_rgb(LabColor(*test_color_lab))
 print("Testing color rgb(T):", test_color_rgb)
 
 inducing_colors_lab = generate_inducing_colors()
 print("Inducing Colors lab(C1 to C20):", inducing_colors_lab)
 inducing_colors_rgb = [
-    tuple(lab_to_rgb(L, a, b)) for (L, a, b) in inducing_colors_lab
+    tuple(lab_to_rgb(LabColor(L, a, b))) for (L, a, b) in inducing_colors_lab
 ]
 print("Inducing Colors rgb(C1 to C20):", inducing_colors_rgb)
 rgb_fg = test_color_rgb
