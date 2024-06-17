@@ -1,4 +1,3 @@
-import numpy as np
 from colormath.color_objects import LabColor, sRGBColor
 from colormath.color_conversions import convert_color
 
@@ -21,7 +20,21 @@ size = 640
 dpi = 141
 square_size_mm = 0
 
-test_color_lab = (80, -90, 90)
+test_color_lab = (80, 50, -50)
+# (80, -90, 90)
+'''
+LAB: (80, 60, 20) - Approximate RGB: (255, 195, 142)
+理由: 这个颜色在a值（红/绿轴）上偏向正值，在b值（黄/蓝轴）上也偏向正值，因此这是一个暖色调的颜色（橙色系）。这有助于研究暖色调混合时的色彩变化。
+LAB: (80, -60, -60) - Approximate RGB: (0, 196, 255)
+理由: 这个颜色在a值和b值上都偏向负值，呈现出冷色调（蓝绿色系）。这有助于研究冷色调混合时的色彩变化。
+LAB: (80, 50, -50) - Approximate RGB: (206, 201, 255)
+理由: 这个颜色在a值上偏正值，在b值上偏负值，形成紫色调。紫色是一个混合了红色和蓝色的颜色，具有很强的对比性，适合观察混色效果。
+LAB: (80, -50, 50) - Approximate RGB: (51, 233, 33)
+理由: 这个颜色在a值上偏负值，在b值上偏正值，形成黄绿色调。黄色和绿色都是很鲜明的颜色，容易观察到混色效果。
+LAB: (80, 0, -80) - Approximate RGB: (116, 209, 255)
+理由: 这个颜色在a值上为0，在b值上偏负值，形成一种纯蓝色调。蓝色是基础颜色之一，与其他颜色混合时，效果明显且容易观察。
+
+'''
 print("Testing color lab(T):", test_color_lab)
 test_color_rgb = lab_to_rgb(LabColor(*test_color_lab))
 print("Testing color rgb(T):", test_color_rgb)
