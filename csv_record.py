@@ -21,7 +21,7 @@ def write_lab_to_csv(lab_tuples, csv_filename):
         writer = csv.writer(file)
 
         # Write header
-        writer.writerow(['L', 'a', 'b', 'R', 'G', 'B'])
+        writer.writerow(['L_inducer', 'a_inducer', 'b_inducer', 'R_inducer', 'G_inducer', 'B_inducer'])
 
         for lab in lab_tuples:
             L, a, b = lab
@@ -31,7 +31,7 @@ def write_lab_to_csv(lab_tuples, csv_filename):
 
 def main():
     # 输出CSV文件名
-    csv_filename = 'output.csv'
+    csv_filename = 'inducer_color_reference.csv'
     # 假设lab_tuples是一个包含(L, a, b)三维元组的列表
     lab_tuples = generate_inducing_colors()
 

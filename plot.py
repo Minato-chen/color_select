@@ -27,7 +27,7 @@ def plot_type1(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_1"
         f"{square_size_mm}_{rgb_fg[0]}_{rgb_fg[1]}_{rgb_fg[2]}_{rgb_bg[0]}_{rgb_bg[1]}_{rgb_bg[2]}.png"
     )
     output_dir = os.path.join(
-        output_dir, "{}_{}_{}".format(square_size_mm,dpi,adjusted_size)
+        output_dir, "{}_{}_{}".format(square_size_mm, dpi, adjusted_size)
     )
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))
@@ -60,7 +60,7 @@ def plot_type2(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_2"
     )
     output_dir = os.path.join(
         output_dir,
-        "{}_{}_{}".format(square_size_mm,dpi,adjusted_size),
+        "{}_{}_{}".format(square_size_mm, dpi, adjusted_size),
     )
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))
@@ -99,8 +99,21 @@ def plot_type3(rgb_fg, rgb_bg, dpi, square_size_mm, output_dir="./output_type_3"
     )
     output_dir = os.path.join(
         output_dir,
-        "{}_{}_{}".format(square_size_mm,dpi,size),
+        "{}_{}_{}".format(square_size_mm, dpi, size),
     )
+    os.makedirs(output_dir, exist_ok=True)
+    image.save(os.path.join(output_dir, filename))
+    print(f"Image saved as {filename}")
+
+
+def plot_measure_use(rgb, size=640, output_dir="./cs2000use_output"):
+    image = Image.new("RGB", (size, size), rgb)
+    image.save("cs2000use.png")
+    # 保存图像
+    filename = (
+        f"{size}_{rgb[0]}_{rgb[1]}_{rgb[2]}.png"
+    )
+
     os.makedirs(output_dir, exist_ok=True)
     image.save(os.path.join(output_dir, filename))
     print(f"Image saved as {filename}")
