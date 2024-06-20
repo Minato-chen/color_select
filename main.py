@@ -20,7 +20,7 @@ size = 640
 dpi = 94
 # 自己的笔记本141dpi，1920x1080分辨率15.6英寸屏幕
 # 实验室94dpi，1920x1200分辨率24.1英寸屏幕
-square_size_mm = 0
+square_size_mm = 0  # 初始化
 
 test_color_lab = (80, -90, 90)
 # (80, -90, 90)
